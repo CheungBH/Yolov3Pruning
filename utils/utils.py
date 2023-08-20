@@ -24,6 +24,14 @@ np.set_printoptions(linewidth=320, formatter={'float_kind': '{:11.5g}'.format}) 
 cv2.setNumThreads(0)
 
 
+def generate_cmd(ls):
+    string = ""
+    for idx, item in enumerate(ls):
+        string += item
+        string += " "
+    return string[:-1] + "\n"
+
+
 def floatn(x, n=3):  # format floats to n decimals
     return float(format(x, '.%gf' % n))
 

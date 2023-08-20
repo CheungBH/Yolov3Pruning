@@ -10,9 +10,10 @@ from utils.datasets import *
 from utils.utils import *
 from utils.prune_utils import *
 from utils.compute_flops import print_model_param_flops, print_model_param_nums
-
+from utils.utils import generate_cmd
 
 mixed_precision = True
+import sys
 try:  # Mixed precision training https://github.com/NVIDIA/apex
     from apex import amp
 except:
@@ -62,8 +63,13 @@ def train():
     best = wdir + 'best.pt'
     results_file = wdir + 'results.txt'
     opt.weights = last if opt.resume else opt.weights
-    shutil.copy(cfg, os.path.join(wdir, "cfg.cfg"))
     os.makedirs(os.path.join(wdir, "images"), exist_ok=True)
+    cmd = generate_cmd(sys.argv[1:])
+
+    with open(os.path.join(wdir, "cmd.txt"), "w") as f:
+        f.write(cmd)
+
+    shutil.copy(cfg, os.path.join(wdir, "cfg.cfg"))
     tb_writer = SummaryWriter(wdir)
 
     if 'pw' not in opt.arc:  # remove BCELoss positive weights
@@ -537,7 +543,7 @@ if __name__ == '__main__':
     parser.add_argument('--var', type=float, help='debug variable')
     parser.add_argument('--sparsity-regularization', '-sr', dest='sr', action='store_true',
                         help='train with channel sparsity regularization')
-    parser.add_argument('--s', type=float, default=0.001, help='scale sparse rate')
+    parser.add_argument('--s', type=float, default=0, help='scale sparse rate')
     parser.add_argument('--prune', type=int, default=1, help='0:nomal prune 1:other prune ')
     
     

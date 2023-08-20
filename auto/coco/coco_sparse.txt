@@ -1,0 +1,4 @@
+'CUDA_VISIBLE_DEVICES=0 python train.py --cfg cfg/yolov3-spp-1cls.cfg --data data/COCO/coco.data --multi-scale --s 0.01 --wdir weights/COCO_sparse/sparse_s0p01 --weight weights/COCO_spp/last.pt --epochs 100 --sparsity-regularization ',
+'CUDA_VISIBLE_DEVICES=1 python train.py --cfg cfg/yolov3-spp-1cls.cfg --data data/COCO/coco.data --multi-scale --s 0.005 --wdir weights/COCO_sparse/sparse_s0p005 --weight weights/COCO_spp/last.pt --epochs 100 --sparsity-regularization ',
+'CUDA_VISIBLE_DEVICES=2 python train.py --cfg cfg/yolov3-spp-1cls.cfg --data data/COCO/coco.data --multi-scale --s 0.001 --wdir weights/COCO_sparse/sparse_s0p001 --weight weights/COCO_spp/last.pt --epochs 100 --sparsity-regularization ',
+'CUDA_VISIBLE_DEVICES=3 python train.py --cfg cfg/yolov3-spp-1cls.cfg --data data/COCO/coco.data --multi-scale --s 0.0005 --wdir weights/COCO_sparse/sparse_s0p0005 --weight weights/COCO_spp/last.pt --epochs 100 --sparsity-regularization ',

@@ -1,5 +1,5 @@
-cfg,data,multi-scale,wdir,batch-size
-cfg/yolov3-1cls.cfg,data/coco/coco.data,TRUE,,16
-cfg/yolov3-1cls.cfg,data/coco/coco.data,TRUE,,8
-cfg/yolov3-1cls.cfg,data/coco/coco.data,FALSE,,16
-cfg/yolov3-1cls.cfg,data/coco/coco.data,FALSE,,8
+cfg,data,multi-scale,s,wdir,weight,epochs,sparsity-regularization
+cfg/yolov3-spp-1cls.cfg,data/coco/coco.data,TRUE,0.01,weights/COCO_sparse/sparse_s0p01,weights/COCO_spp/last.pt,100,TRUE
+cfg/yolov3-spp-1cls.cfg,data/coco/coco.data,TRUE,0.005,weights/COCO_sparse/sparse_s0p005,weights/COCO_spp/last.pt,100,TRUE
+cfg/yolov3-spp-1cls.cfg,data/coco/coco.data,TRUE,0.001,weights/COCO_sparse/sparse_s0p001,weights/COCO_spp/last.pt,100,TRUE
+cfg/yolov3-spp-1cls.cfg,data/coco/coco.data,TRUE,0.0005,weights/COCO_sparse/sparse_s0p0005,weights/COCO_spp/last.pt,100,TRUE
