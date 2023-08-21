@@ -1,4 +1,4 @@
-excel_path = "auto/coco/coco_mobilenet.csv"
+excel_path = "auto/coco/coco_sparse.csv"
 excel_path = excel_path.replace("\\", "/")
 
 task_folder = excel_path.split("/")[-2]
